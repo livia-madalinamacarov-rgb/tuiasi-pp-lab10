@@ -135,5 +135,5 @@ computeFactorials(listOf(5, 6, 7, 8)) → {5=120, 6=720, 7=5040, 8=40320}
 ## Rulare teste
 
 ```bash
-mvn -B test
+gradle test
 ```
