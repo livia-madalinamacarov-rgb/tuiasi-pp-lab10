@@ -24,14 +24,22 @@ class CEOHandler : Handler {
      * @return Răspunsul final primit de la baza lanțului
      */
     override suspend fun handleRequest(message: String): String {
-        // TODO("De implementat")
-        // Pași de urmat:
         // 1. Simulați procesarea asincronă: delay(100) (100ms)
+        delay(100)
+
         // 2. Formați mesajul cererii: "Request - $message"
+        val cerere = "Request - $message"
+
         // 3. Logați sau printați: println("[CEO] Trimit cererea: $cerere")
+        println("[CEO] Trimit cererea: $cerere")
+
         // 4. Delegați la next: val raspuns = next?.handleRequest(cerere) ?: cerere
+        val raspuns = next?.handleRequest(cerere) ?: cerere
+
         // 5. Logați răspunsul primit: println("[CEO] Am primit răspunsul: $raspuns")
+        println("[CEO] Am primit răspunsul: $raspuns")
+
         // 6. Returnați răspunsul
-        TODO("De implementat: inițiază cererea cu 'Request - <mesaj>' și delegă la next")
+        return raspuns
     }
 }

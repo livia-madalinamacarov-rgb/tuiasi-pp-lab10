@@ -22,13 +22,19 @@ class HappyWorkerHandler : Handler {
      * @return Răspunsul generat de worker
      */
     override suspend fun handleRequest(message: String): String {
-        // TODO("De implementat")
-        // Pași de urmat:
         // 1. Simulați procesarea: delay(200) (lucrătorul are nevoie de mai mult timp)
+        delay(200)
+
         // 2. Logați primirea: println("[HappyWorker] Procesez: $message")
+        println("[HappyWorker] Procesez: $message")
+
         // 3. Generați răspunsul: "Response - $message"
+        val raspuns = "Response - $message"
+
         // 4. Logați răspunsul: println("[HappyWorker] Răspund: $raspuns")
+        println("[HappyWorker] Răspund: $raspuns")
+
         // 5. Returnați răspunsul (nu delegați la next!)
-        TODO("De implementat: generează răspunsul final cu formatul 'Response - <mesaj>'")
+        return raspuns
     }
 }

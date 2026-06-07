@@ -5,8 +5,6 @@ import ro.tuiasi.pp.lab10.chain.Handler
 
 /**
  * Factory pentru crearea handler-elor de nivel elit (CEO).
- *
- * Instanțiază un [CEOHandler] — cel mai înalt nivel din lanțul de responsabilitate.
  */
 class EliteFactory : Factory {
 
@@ -16,8 +14,6 @@ class EliteFactory : Factory {
      * @return Un handler de tip CEO
      */
     override fun createHandler(): Handler {
-        // TODO("De implementat")
-        // Returnați un CEOHandler() nou
-        TODO("De implementat: instanțiază și returnează un CEOHandler")
+        return CEOHandler()
     }
 }

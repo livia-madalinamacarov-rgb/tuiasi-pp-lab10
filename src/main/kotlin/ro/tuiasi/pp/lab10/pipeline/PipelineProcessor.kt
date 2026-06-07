@@ -24,42 +24,39 @@ class PipelineProcessor {
      * @return Lista rezultat după înmulțire și sortare
      */
     fun process(input: List<Int>, alpha: Int): List<Int> = runBlocking {
-        // TODO("De implementat")
-        // Pași de urmat:
-        //
         // Etapa 1 → Etapa 2: canal de înmulțire
-        // val canalInmultire = Channel<Int>(Channel.BUFFERED)
-        //
+        val canalInmultire = Channel<Int>(Channel.BUFFERED)
+
         // Corutina producătoare (Etapa 1):
-        // launch {
-        //     for (element in input) {
-        //         canalInmultire.send(element * alpha)
-        //     }
-        //     canalInmultire.close()
-        // }
-        //
+        launch {
+            for (element in input) {
+                canalInmultire.send(element * alpha)
+            }
+            canalInmultire.close()
+        }
+
         // Etapa 2 → Etapa 3: canal de sortare
-        // val canalSortat = Channel<Int>(Channel.BUFFERED)
-        //
+        val canalSortat = Channel<Int>(Channel.BUFFERED)
+
         // Corutina de sortare (Etapa 2):
-        // launch {
-        //     val listaTemp = mutableListOf<Int>()
-        //     for (element in canalInmultire) {
-        //         listaTemp.add(element)
-        //     }
-        //     listaTemp.sort()
-        //     for (element in listaTemp) {
-        //         canalSortat.send(element)
-        //     }
-        //     canalSortat.close()
-        // }
-        //
+        launch {
+            val listaTemp = mutableListOf<Int>()
+            for (element in canalInmultire) {
+                listaTemp.add(element)
+            }
+            listaTemp.sort()
+            for (element in listaTemp) {
+                canalSortat.send(element)
+            }
+            canalSortat.close()
+        }
+
         // Etapa 3 — colectare rezultat:
-        // val rezultat = mutableListOf<Int>()
-        // for (element in canalSortat) {
-        //     rezultat.add(element)
-        // }
-        // rezultat
-        TODO("De implementat: pipeline cu 3 etape prin canale Kotlin (înmulțire → sortare → colectare)")
+        val rezultat = mutableListOf<Int>()
+        for (element in canalSortat) {
+            rezultat.add(element)
+        }
+
+        rezultat
     }
 }

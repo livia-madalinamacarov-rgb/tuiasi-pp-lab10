@@ -5,8 +5,6 @@ import ro.tuiasi.pp.lab10.chain.Handler
 
 /**
  * Factory pentru crearea handler-elor de nivel worker.
- *
- * Instanțiază un [HappyWorkerHandler] — cel mai de jos nivel din lanțul de responsabilitate.
  */
 class HappyWorkerFactory : Factory {
 
@@ -16,8 +14,6 @@ class HappyWorkerFactory : Factory {
      * @return Un handler de tip HappyWorker
      */
     override fun createHandler(): Handler {
-        // TODO("De implementat")
-        // Returnați un HappyWorkerHandler() nou
-        TODO("De implementat: instanțiază și returnează un HappyWorkerHandler")
+        return HappyWorkerHandler()
     }
 }
